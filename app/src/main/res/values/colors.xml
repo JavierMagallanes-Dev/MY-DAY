@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spotify Dark Theme Colors -->
+    <color name="spotify_black">#121212</color>
+    <color name="spotify_dark_gray">#181818</color>
+    <color name="spotify_gray">#282828</color>
+    <color name="spotify_light_gray">#3E3E3E</color>
+    <color name="spotify_green">#1DB954</color>
+    <color name="spotify_green_dark">#1AA34A</color>
+    <color name="spotify_white">#FFFFFF</color>
+    <color name="spotify_text_gray">#B3B3B3</color>
+    
+    <!-- Legacy colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#121212</color>
+    <color name="primary">#1DB954</color>
+    <color name="primary_dark">#1AA34A</color>
+    <color name="primary_light">#282828</color>
+    <color name="accent">#1DB954</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3B3</color>
+    <color name="divider">#282828</color>
+</resources>

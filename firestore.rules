@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regla para la colección users: solo usuarios autenticados pueden acceder a su propio documento
+    match /users/{userId} {
+      // Permitir lectura y escritura solo si el usuario está autenticado y es el dueño del documento
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // Subcolección diary_entries dentro de users
+      match /diary_entries/{entryId} {
+        // Solo el dueño puede ver y modificar sus diarios
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // Todas las demás colecciones permanecen abiertas para lectura y escritura
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

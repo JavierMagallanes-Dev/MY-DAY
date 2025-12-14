@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme - Dark Mode Only (Spotify Style) -->
+    <style name="Base.Theme.MyApplicationMyDay" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/spotify_green</item>
+        <item name="colorPrimaryVariant">@color/spotify_green_dark</item>
+        <item name="colorOnPrimary">@color/spotify_white</item>
+        <item name="colorSecondary">@color/spotify_green</item>
+        <item name="colorSecondaryVariant">@color/spotify_green_dark</item>
+        <item name="colorOnSecondary">@color/spotify_white</item>
+        <item name="android:colorBackground">@color/spotify_black</item>
+        <item name="colorOnBackground">@color/spotify_white</item>
+        <item name="colorSurface">@color/spotify_dark_gray</item>
+        <item name="colorOnSurface">@color/spotify_white</item>
+        <item name="android:statusBarColor">@color/spotify_black</item>
+        <item name="android:navigationBarColor">@color/spotify_black</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.MyApplicationMyDay" parent="Base.Theme.MyApplicationMyDay" />
+</resources>

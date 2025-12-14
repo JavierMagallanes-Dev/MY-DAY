@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879462971456",
+    "project_id": "ponticloud",
+    "storage_bucket": "ponticloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879462971456:android:0bb22ad9fa63a442b047a5",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationmyday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879462971456-au8qac8vq26bau0rpfuee5b6ua1jto37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPg36Duy_hedjvGPp2D3JdM7H-y0DQzPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879462971456-au8qac8vq26bau0rpfuee5b6ua1jto37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/spotify_green</item>
+        <item name="colorOnPrimary">@color/spotify_black</item>
+        <item name="colorSecondary">@color/spotify_green</item>
+        <item name="android:statusBarColor">@color/spotify_black</item>
+        <item name="android:navigationBarColor">@color/spotify_black</item>
+    </style>
+
+    <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/spotify_white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="CalendarWeekDayTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/spotify_text_gray</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>

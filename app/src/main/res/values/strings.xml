@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Mi Day</string>
+    <string name="diary_title">Diario</string>
+    <string name="no_entries">Sin entradas</string>
+    <string name="add_entry_hint">Para agregar una entrada, toca el botón Más.</string>
+    <string name="add_button">Agregar entrada</string>
+    <string name="entry_title">Título</string>
+    <string name="entry_content">¿Qué pasó hoy?</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="search">Buscar</string>
+    <string name="more_options">Más opciones</string>
+    <string name="profile">Perfil</string>
+    <string name="sign_in_with_google">Continuar con Google</string>
+    
+    <!-- Login Screen -->
+    <string name="login_subtitle">Tu espacio personal para reflexionar</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="sign_up">Crear cuenta</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="create_account_subtitle">Ingresa tus datos para empezar</string>
+    <string name="sign_out">Cerrar sesión</string>
+    <string name="or">o</string>
+    
+    <!-- Error Messages -->
+    <string name="error_email_required">El correo es requerido</string>
+    <string name="error_invalid_email">Correo inválido</string>
+    <string name="error_password_required">La contraseña es requerida</string>
+    <string name="error_password_too_short">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_password_length">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_confirm_password_required">Confirma tu contraseña</string>
+    <string name="error_passwords_not_match">Las contraseñas no coinciden</string>
+    <string name="error_email_in_use">Este correo ya está registrado</string>
+    <string name="error_creating_account">Error al crear la cuenta</string>
+    <string name="error_creating_profile">Error al crear el perfil</string>
+    <string name="account_created_success">Cuenta creada exitosamente</string>
+    <string name="error_authentication">Error de autenticación</string>
+    <string name="error_network">Error de conexión. Verifica tu internet</string>
+    
+    <!-- Success Messages -->
+    <string name="sign_in_success">Sesión iniciada</string>
+    <string name="sign_in_failed">Error al iniciar sesión: %s</string>
+    <string name="sign_up_success">Cuenta creada exitosamente</string>
+    <string name="sign_up_failed">Error al crear cuenta: %s</string>
+    <string name="sign_out_success">Sesión cerrada</string>
+    <string name="sign_out_confirm">¿Deseas cerrar sesión?</string>
+    
+    <!-- Profile Screen -->
+    <string name="back">Atrás</string>
+    <string name="member_since">Miembro desde</string>
+    <string name="profile_photo">Foto de perfil</string>
+    <string name="edit_photo">Editar foto</string>
+    <string name="display_name">Nombre completo</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="bio">Biografía</string>
+    <string name="save_profile">Guardar perfil</string>
+    <string name="profile_updated">Perfil actualizado</string>
+    <string name="error_updating_profile">Error al actualizar perfil</string>
+    <string name="uploading_photo">Subiendo foto…</string>
+    <string name="photo_uploaded">Foto actualizada</string>
+    <string name="error_uploading_photo">Error al subir foto</string>
+    <string name="select_photo_source">Seleccionar foto de</string>
+    <string name="camera">Cámara</string>
+    <string name="gallery">Galería</string>
+    
+    <!-- Sync Messages -->
+    <string name="syncing_diaries">Sincronizando diarios…</string>
+    <string name="sync_complete">Diarios sincronizados</string>
+    <string name="sync_error">Error al sincronizar</string>
+    
+    <!-- Social Media -->
+    <string name="social_media">Social Media</string>
+    <string name="all">Todos</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">YouTube</string>
+    <string name="no_social_links">No hay links guardados</string>
+    <string name="add_social_link_hint">Toca el botón + para agregar un link</string>
+    <string name="add_social_link">Agregar link</string>
+    <string name="paste_link_description">Pega el enlace de tu contenido favorito</string>
+    <string name="select_platform">Selecciona la plataforma</string>
+    <string name="paste_url">Pega el URL aquí</string>
+    <string name="preview_image">Imagen de vista previa</string>
+    <string name="link_saved">Link guardado</string>
+    <string name="link_deleted">Link eliminado</string>
+    <string name="error_invalid_url">URL inválido</string>
+    <string name="error_select_platform">Selecciona una plataforma</string>
+</resources>
