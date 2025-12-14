@@ -7,12 +7,31 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/spacing_small"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/spotify_dark_gray"
+    app:strokeColor="@color/spotify_light_gray"
+    app:strokeWidth="0.5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_large">
+        android:padding="@dimen/spacing_large"
+        android:minHeight="120dp">
+
+        <!-- Indicador de estado (opcional) -->
+        <View
+            android:id="@+id/statusIndicator"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:background="@color/spotify_green"
+            android:alpha="0.6"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Título de la entrada -->
         <TextView
@@ -21,9 +40,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:text="Título de la entrada"
+            android:textSize="17sp"
             android:textStyle="bold"
+            android:lineSpacingExtra="2dp"
+            android:layout_marginStart="0dp"
             app:layout_constraintEnd_toStartOf="@id/btnEntryMenu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,27 +56,53 @@
             style="@style/TextAppearance.App.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_tiny"
-            android:layout_marginEnd="@dimen/spacing_tiny"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
             android:ellipsize="end"
-            android:maxLines="2"
+            android:maxLines="3"
             android:text="Contenido de la entrada del diario..."
-            android:lineHeight="20dp"
+            android:textSize="14sp"
+            android:lineSpacingExtra="4dp"
+            android:alpha="0.85"
             app:layout_constraintEnd_toStartOf="@id/btnEntryMenu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEntryTitle" />
 
         <!-- Fecha de la entrada -->
-        <TextView
-            android:id="@+id/tvEntryDate"
-            style="@style/TextAppearance.App.Caption"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/dateContainer"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
-            android:text="Miércoles, 19 nov."
-            app:layout_constraintEnd_toStartOf="@id/btnEntryMenu"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_metric_highlight"
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingEnd="@dimen/spacing_small"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEntryContent" />
+            app:layout_constraintTop_toBottomOf="@id/tvEntryContent">
+
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/spotify_text_gray"
+                android:alpha="0.7" />
+
+            <TextView
+                android:id="@+id/tvEntryDate"
+                style="@style/TextAppearance.App.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Miércoles, 19 nov."
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:alpha="0.7" />
+
+        </LinearLayout>
 
         <!-- Botón menú de tres puntos -->
         <ImageButton

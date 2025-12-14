@@ -32,6 +32,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- Título de la acción -->
+            <TextView
+                android:id="@+id/tvActionTitle"
+                style="@style/TextAppearance.App.Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:text="Nueva entrada"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSave"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <!-- Botón Guardar mejorado -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSave"
@@ -111,20 +126,21 @@
                 android:hint="@string/entry_title"
                 app:boxBackgroundMode="none"
                 app:hintTextColor="@color/spotify_text_gray"
-                app:hintAnimationEnabled="true">
+                app:hintAnimationEnabled="true"
+                app:counterEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:inputType="textCapSentences"
+                    android:inputType="textCapSentences|textAutoCorrect"
                     android:maxLines="3"
                     android:textColor="@color/spotify_white"
-                    android:textSize="26sp"
+                    android:textSize="28sp"
                     android:textStyle="bold"
                     android:letterSpacing="-0.01"
-                    android:lineSpacingExtra="4dp"
+                    android:lineSpacingExtra="6dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
                     android:paddingTop="@dimen/spacing_small"
@@ -148,7 +164,8 @@
                 android:hint="@string/entry_content"
                 app:boxBackgroundMode="none"
                 app:hintTextColor="@color/spotify_text_gray"
-                app:hintAnimationEnabled="true">
+                app:hintAnimationEnabled="true"
+                app:counterEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etContent"
@@ -156,15 +173,16 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:gravity="top"
-                    android:inputType="textMultiLine|textCapSentences"
-                    android:minHeight="400dp"
+                    android:inputType="textMultiLine|textCapSentences|textAutoCorrect"
+                    android:minHeight="450dp"
                     android:textColor="@color/spotify_white"
-                    android:textSize="16sp"
-                    android:lineSpacingExtra="6dp"
+                    android:textSize="17sp"
+                    android:lineSpacingExtra="8dp"
                     android:paddingStart="0dp"
                     android:paddingEnd="0dp"
                     android:paddingTop="@dimen/spacing_small"
-                    android:paddingBottom="@dimen/spacing_small" />
+                    android:paddingBottom="@dimen/spacing_small"
+                    android:scrollbars="vertical" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

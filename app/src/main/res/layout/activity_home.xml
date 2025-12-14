@@ -29,6 +29,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_huge"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
@@ -99,7 +102,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
                         <!-- MÉTRICA 1: Entradas -->
                         <LinearLayout
@@ -123,7 +127,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="1"
+                                android:text="0"
                                 android:textColor="@color/spotify_white"
                                 android:textSize="40sp"
                                 android:textStyle="bold"
@@ -136,7 +140,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="Diarios"
+                                android:text="entradas"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:alpha="0.7" />
@@ -176,7 +180,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="Videos"
+                                android:text="videos"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:alpha="0.7" />
@@ -212,7 +216,7 @@
                                 android:id="@+id/tvTotalWords"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="3"
+                                android:text="0"
                                 android:textColor="@color/spotify_white"
                                 android:textSize="28sp"
                                 android:textStyle="bold"
@@ -238,17 +242,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="📈"
+                                android:text="📊"
                                 android:textSize="20sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="+100%"
-                                android:textColor="@color/spotify_green"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="2dp" />
 
                         </LinearLayout>
 
@@ -266,6 +261,9 @@
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_marginTop="@dimen/spacing_medium"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardBackgroundColor="@android:color/transparent"
             app:cardCornerRadius="20dp"
             app:cardElevation="4dp"
@@ -426,6 +424,7 @@
                     android:paddingEnd="@dimen/spacing_medium"
                     android:paddingTop="@dimen/spacing_medium"
                     android:paddingBottom="@dimen/spacing_medium"
+                    android:minHeight="72dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true">
@@ -493,7 +492,7 @@
                             android:id="@+id/tvDiaryCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1"
+                            android:text="0"
                             android:textColor="@color/spotify_white"
                             android:textSize="20sp"
                             android:textStyle="bold"
@@ -530,6 +529,7 @@
                     android:paddingEnd="@dimen/spacing_medium"
                     android:paddingTop="@dimen/spacing_medium"
                     android:paddingBottom="@dimen/spacing_medium"
+                    android:minHeight="72dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true">
@@ -634,6 +634,7 @@
                     android:paddingEnd="@dimen/spacing_medium"
                     android:paddingTop="@dimen/spacing_medium"
                     android:paddingBottom="@dimen/spacing_medium"
+                    android:minHeight="72dp"
                     android:background="?attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true">
@@ -702,7 +703,7 @@
                             android:id="@+id/tvDeletedCount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1"
+                            android:text="0"
                             android:textColor="@color/spotify_white"
                             android:textSize="20sp"
                             android:textStyle="bold"

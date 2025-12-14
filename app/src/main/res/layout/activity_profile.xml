@@ -71,7 +71,11 @@
                     android:layout_marginTop="@dimen/spacing_medium"
                     android:text="usuario@ejemplo.com"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing_large" />
 
                 <!-- Badge de miembro desde -->
                 <LinearLayout
@@ -163,7 +167,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:padding="@dimen/spacing_medium">
+                        android:padding="@dimen/spacing_medium"
+                        android:minHeight="72dp">
 
                         <FrameLayout
                             android:layout_width="40dp"
@@ -201,20 +206,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Hace 2 horas"
+                                android:text="Sin entradas"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
 
                     </LinearLayout>
 
-                    <!-- Últimos videos -->
+                    <!-- Videos guardados -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:padding="@dimen/spacing_medium">
+                        android:padding="@dimen/spacing_medium"
+                        android:minHeight="72dp">
 
                         <FrameLayout
                             android:layout_width="40dp"
@@ -252,7 +258,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="3 videos"
+                                android:text="Sin videos"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
@@ -265,7 +271,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:padding="@dimen/spacing_medium">
+                        android:padding="@dimen/spacing_medium"
+                        android:minHeight="72dp">
 
                         <FrameLayout
                             android:layout_width="40dp"
@@ -303,7 +310,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="2 entradas"
+                                android:text="Sin entradas"
                                 android:textSize="14sp" />
 
                         </LinearLayout>
