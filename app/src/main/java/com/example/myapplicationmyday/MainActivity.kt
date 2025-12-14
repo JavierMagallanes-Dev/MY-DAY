@@ -22,30 +22,30 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    
+
     private lateinit var binding: ActivityMainBinding
     private val viewModel: DiaryViewModel by viewModels()
     private val deletedViewModel: DeletedEntryViewModel by viewModels()
     private lateinit var adapter: DiaryAdapter
     private lateinit var auth: FirebaseAuth
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
         auth = Firebase.auth
-        
+
         // Sync from Firestore
         auth.currentUser?.uid?.let { userId ->
             viewModel.syncFromFirestore(userId)
         }
-        
+
         setupRecyclerView()
         setupObservers()
         setupClickListeners()
     }
-    
+
     private fun setupRecyclerView() {
         adapter = DiaryAdapter(
             onItemClick = { entry ->
@@ -59,17 +59,17 @@ class MainActivity : AppCompatActivity() {
                 showEntryMenu(entry, view)
             }
         )
-        
+
         binding.rvDiaryEntries.layoutManager = LinearLayoutManager(this)
         binding.rvDiaryEntries.adapter = adapter
     }
-    
+
     private fun setupObservers() {
         viewModel.allEntries.observe(this) { entries ->
             // Convertir las entradas a items con headers
             val items = entries.toItemsWithHeaders()
             adapter.submitList(items)
-            
+
             // Mostrar/ocultar el estado vacío
             if (entries.isEmpty()) {
                 binding.emptyStateLayout.visibility = View.VISIBLE
@@ -80,30 +80,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     private fun setupClickListeners() {
         binding.fabAddEntry.setOnClickListener {
             val intent = Intent(this, AddEditEntryActivity::class.java)
             startActivity(intent)
         }
-        
+
         binding.btnBack.setOnClickListener {
             finish()
         }
-        
+
         binding.btnSearch.setOnClickListener {
             // TODO: Implementar búsqueda
         }
-        
+
         binding.btnMore.setOnClickListener {
             // TODO: Mostrar menú de opciones
         }
     }
-    
+
     private fun showEntryMenu(entry: DiaryEntry, view: View) {
         val popup = PopupMenu(this, view)
         popup.menuInflater.inflate(R.menu.entry_menu, popup.menu)
-        
+
         popup.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_edit -> {
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         }
         popup.show()
     }
-    
+
     private fun showDeleteConfirmation(entry: DiaryEntry) {
         AlertDialog.Builder(this)
             .setTitle("Eliminar entrada")
@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancelar", null)
             .show()
     }
-    
+
     private fun moveToTrash(entry: DiaryEntry) {
         lifecycleScope.launch {
             // Crear entrada eliminada
@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity() {
                 createdAt = entry.createdAt,
                 deletedAt = System.currentTimeMillis()
             )
-            
+
             // Guardar en papelera y eliminar del diario
             deletedViewModel.insert(deletedEntry)
             viewModel.delete(entry)

@@ -23,8 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Tarjeta de Estadísticas -->
-        <!-- Tarjeta de Estadísticas MEJORADA CON VISUALES AVANZADOS -->
+        <!-- Tarjeta de Estadísticas MEJORADA -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardStatistics"
             android:layout_width="0dp"
@@ -37,7 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Fondo con gradiente -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -72,7 +70,6 @@
                             android:text="Estadísticas"
                             android:textSize="22sp" />
 
-                        <!-- Badge de "Nuevo" o estado -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -97,7 +94,7 @@
                         android:background="@color/spotify_green"
                         android:alpha="0.6" />
 
-                    <!-- Grid de métricas MEJORADO -->
+                    <!-- Grid de métricas -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -114,7 +111,6 @@
                             android:padding="16dp"
                             android:layout_marginEnd="8dp">
 
-                            <!-- Ícono pequeño -->
                             <ImageView
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
@@ -189,7 +185,7 @@
 
                     </LinearLayout>
 
-                    <!-- MÉTRICA 3: Palabras totales - Destacada -->
+                    <!-- MÉTRICA 3: Palabras totales -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -263,7 +259,7 @@
             </FrameLayout>
 
         </com.google.android.material.card.MaterialCardView>
-        <!-- Tarjeta de Lugares -->
+
         <!-- Tarjeta de Lugares MEJORADA -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardPlaces"
@@ -281,20 +277,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <!-- Fondo con gradiente simulando mapa -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/bg_card_stats_gradient" />
 
-                <!-- Grid pattern overlay -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#0A1DB954"
                     android:alpha="0.3" />
 
-                <!-- Contenido -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -345,7 +338,6 @@
                         android:background="@color/spotify_green"
                         android:alpha="0.5" />
 
-                    <!-- Placeholder para mapa -->
                     <TextView
                         style="@style/TextAppearance.App.Caption"
                         android:layout_width="wrap_content"
@@ -357,7 +349,6 @@
 
                 </LinearLayout>
 
-                <!-- Decorative pin icon -->
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
@@ -371,34 +362,36 @@
             </FrameLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
         <!-- Sección Diarios -->
         <LinearLayout
             android:id="@+id/sectionDiaries"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/spacing_large"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardPlaces">
 
             <TextView
+                style="@style/TextAppearance.App.Title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Diarios"
-                android:textColor="@color/spotify_text_gray"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:letterSpacing="0.01" />
 
             <ImageButton
                 android:id="@+id/btnAddDiary"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/add_button"
                 android:src="@drawable/ic_add"
-                app:tint="@color/spotify_text_gray" />
+                app:tint="@color/spotify_green" />
 
         </LinearLayout>
 
@@ -407,10 +400,12 @@
             android:id="@+id/cardDiaries"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/spacing_medium"
             app:cardBackgroundColor="@color/spotify_dark_gray"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="1dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:strokeColor="@color/spotify_light_gray"
+            app:strokeWidth="0.5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sectionDiaries">
@@ -422,130 +417,318 @@
                 android:divider="@drawable/divider_horizontal"
                 android:showDividers="middle">
 
-                <!-- Diario -->
-                <LinearLayout
+                <!-- DIARIO -->
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutDiary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:paddingBottom="@dimen/spacing_medium"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_book"
-                        app:tint="@color/spotify_green" />
+                    <FrameLayout
+                        android:id="@+id/iconContainer1"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_metric_highlight"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_book"
+                            app:tint="@color/spotify_green" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/textContainer1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:text="Diario"
-                        android:textColor="@color/spotify_white"
-                        android:textSize="16sp" />
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/iconContainer1"
+                        app:layout_constraintEnd_toStartOf="@id/badgeContainer1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
-                        android:id="@+id/tvDiaryCount"
+                        <TextView
+                            style="@style/TextAppearance.App.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Diario"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/TextAppearance.App.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Tus entradas personales"
+                            android:textSize="12sp"
+                            android:alpha="0.7" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/badgeContainer1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="1"
-                        android:textColor="@color/spotify_text_gray"
-                        android:textSize="16sp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_tiny"
+                        app:layout_constraintEnd_toStartOf="@id/chevron1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvDiaryCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/spotify_white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:minWidth="28dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_metric_highlight"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingEnd="@dimen/spacing_small"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp" />
+
+                    </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/chevron1"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
+                        app:tint="@color/spotify_text_gray"
+                        android:alpha="0.6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Social Media -->
-                <LinearLayout
+                <!-- SOCIAL MEDIA -->
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutSocialMedia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:paddingBottom="@dimen/spacing_medium"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_heart"
-                        app:tint="#EF4444" />
+                    <FrameLayout
+                        android:id="@+id/iconContainer2"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_metric_highlight"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_heart"
+                            app:tint="#EF4444" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/textContainer2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:text="Social Media"
-                        android:textColor="@color/spotify_white"
-                        android:textSize="16sp" />
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/iconContainer2"
+                        app:layout_constraintEnd_toStartOf="@id/badgeContainer2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
-                        android:id="@+id/tvSocialMediaCount"
+                        <TextView
+                            style="@style/TextAppearance.App.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Social Media"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/TextAppearance.App.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Videos guardados"
+                            android:textSize="12sp"
+                            android:alpha="0.7" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/badgeContainer2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="0"
-                        android:textColor="@color/spotify_text_gray"
-                        android:textSize="16sp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_tiny"
+                        app:layout_constraintEnd_toStartOf="@id/chevron2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvSocialMediaCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/spotify_white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:minWidth="28dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_metric_highlight"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingEnd="@dimen/spacing_small"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp" />
+
+                    </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/chevron2"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
+                        app:tint="@color/spotify_text_gray"
+                        android:alpha="0.6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <!-- Eliminadas recientemente -->
-                <LinearLayout
+                <!-- ELIMINADAS RECIENTEMENTE -->
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutDeleted"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingEnd="@dimen/spacing_medium"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:paddingBottom="@dimen/spacing_medium"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
 
-                    <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_delete"
-                        app:tint="@color/spotify_text_gray" />
+                    <FrameLayout
+                        android:id="@+id/iconContainer3"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_metric_highlight"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_delete"
+                            app:tint="@color/spotify_text_gray"
+                            android:alpha="0.8" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/textContainer3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:text="Eliminadas recientemente"
-                        android:textColor="@color/spotify_white"
-                        android:textSize="16sp" />
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/iconContainer3"
+                        app:layout_constraintEnd_toStartOf="@id/badgeContainer3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
+                        <TextView
+                            style="@style/TextAppearance.App.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Eliminadas recientemente"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            style="@style/TextAppearance.App.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="30 días restantes"
+                            android:textSize="12sp"
+                            android:alpha="0.7" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/badgeContainer3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="1"
-                        android:textColor="@color/spotify_text_gray"
-                        android:textSize="16sp" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_tiny"
+                        app:layout_constraintEnd_toStartOf="@id/chevron3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvDeletedCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/spotify_white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium"
+                            android:minWidth="28dp"
+                            android:gravity="center"
+                            android:background="@drawable/bg_metric_highlight"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingEnd="@dimen/spacing_small"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp" />
+
+                    </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/chevron3"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
+                        app:tint="@color/spotify_text_gray"
+                        android:alpha="0.6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 

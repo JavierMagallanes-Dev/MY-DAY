@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/spotify_black">
 
-    <!-- Toolbar superior -->
+    <!-- AppBar con Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -16,8 +16,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:paddingStart="8dp"
-            android:paddingEnd="16dp">
+            android:paddingStart="@dimen/spacing_tiny"
+            android:paddingEnd="@dimen/spacing_medium">
 
             <!-- Botón Atrás -->
             <ImageButton
@@ -26,20 +26,27 @@
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/cancel"
-                android:src="@drawable/ic_back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/spotify_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/spotify_white" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Botón Guardar -->
+            <!-- Botón Guardar mejorado -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="42dp"
                 android:text="@string/save"
                 android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/spotify_black"
+                android:paddingStart="@dimen/spacing_large"
+                android:paddingEnd="@dimen/spacing_large"
                 app:backgroundTint="@color/spotify_green"
+                app:cornerRadius="21dp"
+                app:elevation="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,25 +66,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingEnd="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_medium"
+            android:paddingBottom="@dimen/spacing_xxlarge">
 
-            <!-- Fecha -->
-            <TextView
-                android:id="@+id/tvDate"
+            <!-- Fecha con mejor diseño -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="19 de noviembre de 2025"
-                android:textColor="@color/spotify_text_gray"
-                android:textSize="14sp" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_metric_highlight"
+                android:paddingStart="@dimen/spacing_medium"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small">
 
-            <!-- Campo de título -->
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="@color/spotify_green"
+                    android:alpha="0.8" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    style="@style/TextAppearance.App.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:text="19 de noviembre de 2025"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:alpha="0.9" />
+
+            </LinearLayout>
+
+            <!-- Campo de título mejorado -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:hint="@string/entry_title"
                 app:boxBackgroundMode="none"
-                app:hintTextColor="@color/spotify_text_gray">
+                app:hintTextColor="@color/spotify_text_gray"
+                app:hintAnimationEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etTitle"
@@ -85,21 +119,36 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:inputType="textCapSentences"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:textColor="@color/spotify_white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="-0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingBottom="@dimen/spacing_small" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Campo de contenido -->
+            <!-- Separador sutil -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:background="@color/spotify_light_gray"
+                android:alpha="0.15" />
+
+            <!-- Campo de contenido mejorado -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:hint="@string/entry_content"
                 app:boxBackgroundMode="none"
-                app:hintTextColor="@color/spotify_text_gray">
+                app:hintTextColor="@color/spotify_text_gray"
+                app:hintAnimationEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etContent"
@@ -108,11 +157,47 @@
                     android:background="@android:color/transparent"
                     android:gravity="top"
                     android:inputType="textMultiLine|textCapSentences"
-                    android:minHeight="200dp"
+                    android:minHeight="400dp"
                     android:textColor="@color/spotify_white"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="6dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingBottom="@dimen/spacing_small" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Indicador informativo -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_metric_highlight"
+                android:paddingStart="@dimen/spacing_medium"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingTop="@dimen/spacing_tiny"
+                android:paddingBottom="@dimen/spacing_tiny">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_quote"
+                    app:tint="@color/spotify_green"
+                    android:alpha="0.6" />
+
+                <TextView
+                    style="@style/TextAppearance.App.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_tiny"
+                    android:text="Escribe tus pensamientos libremente"
+                    android:textSize="11sp"
+                    android:alpha="0.6" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

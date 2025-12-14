@@ -1,366 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/spotify_black"
-    android:fillViewport="true">
+    android:background="@color/spotify_black">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- AppBar con Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_medium">
+        android:background="@color/spotify_black"
+        app:elevation="0dp">
 
-        <!-- Botón de perfil superior -->
-        <ImageButton
-            android:id="@+id/btnMore"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/profile"
-            android:src="@drawable/ic_person"
-            app:tint="@color/spotify_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Tarjeta de Estadísticas MEJORADA -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardStatistics"
-            style="@style/Widget.App.CardView"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_huge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_tiny"
+            android:paddingBottom="@dimen/spacing_tiny">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_large">
+            <!-- Botón Atrás -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/spotify_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    style="@style/TextAppearance.App.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Estadísticas" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:orientation="horizontal">
-
-                    <!-- Entradas este año -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvEntryCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="1"
-                            android:textColor="@color/spotify_white"
-                            android:textSize="42sp"
-                            android:textStyle="bold"
-                            android:fontFamily="sans-serif-medium" />
-
-                        <TextView
-                            android:id="@+id/tvEntryLabel"
-                            style="@style/TextAppearance.App.Caption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_micro"
-                            android:text="entrada este año" />
-
-                    </LinearLayout>
-
-                    <!-- Videos contados -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/icon_size_small"
-                                android:layout_height="@dimen/icon_size_small"
-                                android:src="@drawable/ic_link"
-                                app:tint="@color/spotify_white" />
-
-                            <TextView
-                                android:id="@+id/tvStreakDays"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/spacing_tiny"
-                                android:text="0"
-                                android:textColor="@color/spotify_white"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
-                                android:fontFamily="sans-serif-medium" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            style="@style/TextAppearance.App.Caption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_micro"
-                            android:text="Videos" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <!-- Palabras en total -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_small"
-                        android:layout_height="@dimen/icon_size_small"
-                        android:src="@drawable/ic_quote"
-                        app:tint="@color/spotify_white" />
-
-                    <TextView
-                        android:id="@+id/tvTotalWords"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_tiny"
-                        android:text="3"
-                        android:textColor="@color/spotify_white"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium" />
-
-                </LinearLayout>
-
-                <TextView
-                    style="@style/TextAppearance.App.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="palabras en total" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Tarjeta de Lugares -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardPlaces"
-            style="@style/Widget.App.CardView"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="@dimen/spacing_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardStatistics">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/spotify_dark_gray" />
-
-                <TextView
-                    style="@style/TextAppearance.App.Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_large"
-                    android:text="Lugares" />
-
-            </FrameLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Sección Diarios -->
-        <LinearLayout
-            android:id="@+id/sectionDiaries"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_large"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardPlaces">
-
+            <!-- Título -->
             <TextView
-                style="@style/TextAppearance.App.Body"
+                android:id="@+id/tvTitle"
+                style="@style/TextAppearance.App.Headline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Diarios"
-                android:textColor="@color/spotify_text_gray"
-                android:textStyle="bold" />
+                android:layout_marginStart="@dimen/spacing_small"
+                android:text="@string/diary_title"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSearch"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- Botón Buscar -->
             <ImageButton
-                android:id="@+id/btnAddDiary"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:id="@+id/btnSearch"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/add_button"
-                android:src="@drawable/ic_add"
+                android:contentDescription="@string/search"
+                android:src="@drawable/ic_search"
+                app:tint="@color/spotify_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnMore"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Botón Más opciones -->
+            <ImageButton
+                android:id="@+id/btnMore"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/more_options"
+                android:src="@drawable/ic_more"
+                app:tint="@color/spotify_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Contenido principal -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- RecyclerView para las entradas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDiaryEntries"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_huge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/item_diary_entry" />
+
+        <!-- Vista de estado vacío -->
+        <LinearLayout
+            android:id="@+id/emptyStateLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingStart="@dimen/spacing_xxlarge"
+            android:paddingEnd="@dimen/spacing_xxlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <!-- Ícono grande -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:contentDescription="@string/no_entries"
+                android:src="@drawable/ic_book"
+                android:alpha="0.3"
                 app:tint="@color/spotify_text_gray" />
+
+            <!-- Texto principal -->
+            <TextView
+                style="@style/TextAppearance.App.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/no_entries"
+                android:textAlignment="center" />
+
+            <!-- Texto de ayuda -->
+            <TextView
+                style="@style/TextAppearance.App.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/add_entry_hint"
+                android:textAlignment="center"
+                android:textColor="@color/spotify_text_gray"
+                android:alpha="0.87" />
 
         </LinearLayout>
 
-        <!-- Lista de Diarios MEJORADA -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDiaries"
-            style="@style/Widget.App.CardView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sectionDiaries">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:divider="@drawable/divider_horizontal"
-                android:showDividers="middle">
-
-                <!-- Diario -->
-                <LinearLayout
-                    android:id="@+id/layoutDiary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_medium"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_large"
-                        android:layout_height="@dimen/icon_size_large"
-                        android:src="@drawable/ic_book"
-                        app:tint="@color/spotify_green" />
-
-                    <TextView
-                        style="@style/TextAppearance.App.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/spacing_medium"
-                        android:text="Diario" />
-
-                    <TextView
-                        android:id="@+id/tvDiaryCount"
-                        style="@style/TextAppearance.App.Caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/spacing_tiny"
-                        android:text="1" />
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_small"
-                        android:layout_height="@dimen/icon_size_small"
-                        android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
-                </LinearLayout>
-
-                <!-- Social Media -->
-                <LinearLayout
-                    android:id="@+id/layoutSocialMedia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_medium"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_large"
-                        android:layout_height="@dimen/icon_size_large"
-                        android:src="@drawable/ic_heart"
-                        app:tint="#EF4444" />
-
-                    <TextView
-                        style="@style/TextAppearance.App.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/spacing_medium"
-                        android:text="Social Media" />
-
-                    <TextView
-                        android:id="@+id/tvSocialMediaCount"
-                        style="@style/TextAppearance.App.Caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/spacing_tiny"
-                        android:text="0" />
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_small"
-                        android:layout_height="@dimen/icon_size_small"
-                        android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
-
-                </LinearLayout>
-
-                <!-- Eliminadas recientemente -->
-                <LinearLayout
-                    android:id="@+id/layoutDeleted"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_medium"
-                    android:gravity="center_vertical"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_large"
-                        android:layout_height="@dimen/icon_size_large"
-                        android:src="@drawable/ic_delete"
-                        app:tint="@color/spotify_text_gray" />
-
-                    <TextView
-                        style="@style/TextAppearance.App.Body"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/spacing_medium"
-                        android:text="Eliminadas recientemente" />
-
-                    <TextView
-                        style="@style/TextAppearance.App.Caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/spacing_tiny"
-                        android:text="1" />
-
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_small"
-                        android:layout_height="@dimen/icon_size_small"
-                        android:src="@drawable/ic_chevron_right"
-                        app:tint="@color/spotify_text_gray" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+    <!-- FAB para agregar entrada -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/spacing_large"
+        android:contentDescription="@string/add_button"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/spotify_green"
+        app:tint="@color/spotify_black"
+        app:elevation="@dimen/elevation_fab"
+        app:borderWidth="0dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
