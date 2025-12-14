@@ -9,14 +9,88 @@
         <item name="android:navigationBarColor">@color/spotify_black</item>
     </style>
 
+    <!-- NUEVOS ESTILOS PARA TIPOGRAFÍA -->
+    <style name="TextAppearance.App.Display" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="android:textColor">@color/spotify_white</item>
+        <item name="android:textSize">@dimen/text_display</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.App.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/spotify_white</item>
+        <item name="android:textSize">@dimen/text_headline</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.App.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/spotify_white</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.App.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/spotify_white</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/spotify_text_gray</item>
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:alpha">0.87</item>
+    </style>
+
+    <!-- ESTILOS PARA BOTONES -->
+    <style name="Widget.App.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="elevation">@dimen/elevation_card</item>
+        <item name="backgroundTint">@color/spotify_green</item>
+    </style>
+
+    <style name="Widget.App.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="strokeColor">@color/spotify_light_gray</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <!-- ESTILOS PARA CARDS -->
+    <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">@dimen/elevation_card</item>
+        <item name="cardBackgroundColor">@color/spotify_dark_gray</item>
+        <item name="strokeColor">@color/spotify_light_gray</item>
+        <item name="strokeWidth">0.5dp</item>
+    </style>
+
+    <!-- ESTILOS PARA INPUTS -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/spotify_dark_gray</item>
+        <item name="boxStrokeColor">@color/spotify_green</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/spotify_text_gray</item>
+        <item name="android:textColorHint">@color/spotify_text_gray</item>
+    </style>
+
+    <!-- ESTILOS PARA CALENDAR -->
     <style name="CalendarDateTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/spotify_white</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/text_caption</item>
     </style>
 
     <style name="CalendarWeekDayTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/spotify_text_gray</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_small</item>
     </style>
 
 </resources>
